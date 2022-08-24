@@ -16,35 +16,35 @@ public class StringRunner
 		StringOddOrEven test = new StringOddOrEven();
 		
 		test.setString("");
-		out.println(test.toString());
+		out.println(test);
 		System.out.println();
 		
 		test.setString("");
-		out.println(test.toString());
+		out.println(test);
 		System.out.println();
 		
 		test.setString("");
-		out.println(test.toString());
+		out.println(test);
 		System.out.println();
 		
 		test.setString("");
-		out.println(test.toString());
+		out.println(test);
 		System.out.println();
 		
 		test.setString("");
-		out.println(test.toString());
+		out.println(test);
 		System.out.println();
 		
 		test.setString("");
-		out.println(test.toString());
+		out.println(test);
 		System.out.println();
 		
 		test.setString("");
-		out.println(test.toString());
+		out.println(test);
 		System.out.println();
 		
 		test.setString("");
-		out.println(test.toString());
+		out.println(test);
 		System.out.println();
 	}
 }
