@@ -20,15 +20,18 @@ public class Perfect
 	{
 		int i = 1;
 		int count = 0;
-		while (i <= number) {
+		
+		do{
 			if (number%i == 0) {
 				count += i;
-				i++;
 			}
-		}
+			i++;
+		}while(i < number);
+		
 		if (count == number) {
 			return true;
 		}
+		
 		else {
 			return false;
 		}
