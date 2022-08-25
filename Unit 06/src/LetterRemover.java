@@ -11,6 +11,7 @@ public class LetterRemover
 
 	public LetterRemover()
 	{
+		setRemover("", '0');
 		//call set
 	}
 
@@ -26,9 +27,16 @@ public class LetterRemover
 	public String removeLetters()
 	{
 		String cleaned=sentence;
+		int i = cleaned.indexOf(lookFor);
+		while (i > -1) {
+			
+			cleaned = cleaned.substring(0, i) + cleaned.substring(i + 1);
+			i = cleaned.indexOf(lookFor);
+		}
+		
 		return cleaned;
 	}
-
+	
 	public String toString()
 	{
 		return sentence + " - letter to remove " + lookFor;

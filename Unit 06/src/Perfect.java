@@ -7,16 +7,42 @@ import static java.lang.System.*;
 public class Perfect
 {
    private int number;
-
-	//add constructors
-
-	//add a set method
-
+   
+    public Perfect(){
+	   setInt(0);
+    }
+   
+    public void setInt(int i) {
+	   number = i;
+    }
+	
 	public boolean isPerfect()
 	{
-		return false;
+		int i = 1;
+		int count = 0;
+		while (i <= number) {
+			if (number%i == 0) {
+				count += i;
+				i++;
+			}
+		}
+		if (count == number) {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
 	}
-
-	//add a toString	
+	
+	public String toString() {
+		if(isPerfect()) {
+			return number + " is perfect.";
+		}
+		else {
+			return number + " is not perfect.";
+		}
+		
+	}	
 	
 }
