@@ -9,12 +9,11 @@ public class CountPairs
 	public static int pairCounter( String str )
 	{ 
 		int count = 0;
-		char ch, ch2;
-		for(int i=0; i < str.length(); i++) {
-			ch = str.charAt(i);
-			ch2 = str.charAt(i++);
-			if(ch == ch2){
-				count++;
+		for(int i=0; i < str.length()-1; i=i+1) 
+			{
+			if((str.charAt(i)) == (str.charAt(i+1)))
+			{
+				count = count+1;
 			}
 		}
 		return count;
