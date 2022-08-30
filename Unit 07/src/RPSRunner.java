@@ -16,7 +16,7 @@ public class RPSRunner
 		
 			String player = "";
 		do {
-			out.print("pick your weapon! [R,P,S] :: ");
+			out.print("Rock-Paper-Scissors - pick your weapon! [R,P,S] :: ");
 			player = keyboard.next();
 			//read in the player value
 		
@@ -24,6 +24,7 @@ public class RPSRunner
 			game.setPlayers(player);
 			out.print(game);
 			response = keyboard.next().charAt(0);
+			out.println();
 		}while(response=='Y'|| response=='y');
 	}
 }

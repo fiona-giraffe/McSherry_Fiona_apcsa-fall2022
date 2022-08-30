@@ -41,26 +41,25 @@ public class RockPaperScissors
 		
 		if(playChoice.equals(compChoice))
 			winner = "!Draw Game!";
-
-		else if(compChoice == "R")
+		else if(compChoice.equals("R"))
 		{
-			if(playChoice == "P")
+			if(playChoice.equals("P"))
 				winner = "!Player wins <<Paper covers Rock>>!";
-			else if(playChoice == "S")
+			else if(playChoice.equals("S"))
 				winner = "!Computer winds <<Rock breaks Scissors>>!";
 		}
-		else if(compChoice == "P")
+		else if(compChoice.equals("P"))
 		{
-			if(playChoice == "R")
+			if(playChoice.equals("R"))
 				winner = "!Computer wins <<Paper covers Rock>>!";
-			else if(playChoice == "S")
+			else if(playChoice.equals("S"))
 				winner = "!Player wins <<Scissors cuts Paper>>!";
 		}
-		else if(compChoice == "S")
+		else if(compChoice.equals("S"))
 		{
-			if(playChoice == "R")
+			if(playChoice.equals("R"))
 				winner = "!Player wins <<Rock breaks Scissors>>!";
-			else if(playChoice == "P")
+			else if(playChoice.equals("P"))
 				winner = "!Computer wins <<Scissors cuts Paper>>!";
 		}
 		
@@ -70,7 +69,7 @@ public class RockPaperScissors
 	public String toString()
 	{
 		String output="player had " + playChoice + "\n" + "computer had " + compChoice + "\n";
-		output = output + determineWinner();
+		output = "" + output + determineWinner() + "\n";
 		output = output + "\n" + "Do you want to play again?";
 			
 		return output;
