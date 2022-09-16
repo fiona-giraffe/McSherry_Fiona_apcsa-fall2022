@@ -46,48 +46,27 @@ public class DeckTester {
 		System.out.println();
 		
 		System.out.println("**** Shuffle cards ****");
+		System.out.println();
+		Deck e = new Deck(ranks, suits, pointValues);
+		e.shuffle();
 		
-		String[] ranks2 = new String[52];
-        String[] suits2 = new String[52];
-        int[] pointValues2 = new int[52];
-        for (int i = 0; i < 52; i++) {
-            String rank = "";
-            String suit = "";
-            if ( (i+1) % 13 == 11 ) {
-                rank = "Jack";
-            }
-            else if ( (i+1) % 13 == 12 ) {
-                rank = "Queen";
-            }
-            else if ( (i+1) % 13 == 0 ) {
-                rank = "King";
-            }
-            else if ( (i+1) % 13 == 1 ) {
-                rank = "Ace";
-            }
-            else {
-                rank = Integer.toString((i + 1) % 13);
-            }
-            
-            if (i < 13) {
-                suit = "Hearts";
-            }
-            else if (i < 26) {
-                suit = "Diamonds";
-            }
-            else if (i < 39) { 
-                suit = "Clubs";
-            }
-            else {
-                suit = "Spades";
-            }
-            
-            ranks2[i] = rank;
-            suits2[i] = suit;
-            pointValues2[i] = ((i+1) % 13);
-        }
-        
-        Deck e = new Deck(ranks2, suits2, pointValues2);
-        System.out.println(e);
+		System.out.println("**** Original Deck Methods ****");
+		System.out.println("   toString:\n" + e.toString());
+		System.out.println("   isEmpty: " + e.isEmpty());
+		System.out.println("   size: " + e.size());
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("**** Deal a Card ****");
+		System.out.println("   deal: " + e.deal());
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("**** Deck Methods After 1 Card Dealt ****");
+		System.out.println("   toString:\n" + e.toString());
+		System.out.println("   isEmpty: " + e.isEmpty());
+		System.out.println("   size: " + e.size());
+		System.out.println();
+		System.out.println();  
 	}
 }
