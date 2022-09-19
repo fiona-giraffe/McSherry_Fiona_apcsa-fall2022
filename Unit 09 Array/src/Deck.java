@@ -11,7 +11,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards;
+	private Card[] cards;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -31,14 +31,14 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		cards = new ArrayList <Card>();
+		cards = new Card[6];
 		 for(int i=0; i < ranks.length; i++) {
 			 for(int j=0; j < suits.length; j++) {
 				 Card card = new Card(ranks[i], suits[j], values[i]);
-				 cards.add(card);;
+				 cards[i] = card;
 			 }
 		 }
-		 size = cards.size();
+		 size = cards.length;
 	}
 
 
@@ -68,9 +68,9 @@ public class Deck {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
 		for(int i = size - 1; i >= 0; i--) {
 			int rand = (int)(Math.random()*i);
-			Card temp = cards.get(rand);
-			cards.set(rand,  cards.get(i));
-			cards.set(i,  temp);
+			Card temp = cards[rand];
+			cards[rand] = cards[i];
+			cards[i] = temp;
 		}
 	}
 
@@ -85,7 +85,7 @@ public class Deck {
 			return null;
 		}
 		size--;
-		Card c = cards.get(size);
+		Card c = cards[size];
 		return c;
 	}
 
@@ -98,7 +98,7 @@ public class Deck {
 		String rtn = "size = " + size + "\n\nUndealt cards: \n";
 
 		for (int k = size - 1; k >= 0; k--) {
-			rtn = rtn + cards.get(k);
+			rtn = rtn + cards[k];
 			if (k != 0) {
 				rtn = rtn + ", ";
 			}
@@ -109,12 +109,12 @@ public class Deck {
 		}
 
 		rtn = rtn + "\n\nDealt cards: \n";
-		for (int k = cards.size() - 1; k >= size; k--) {
-			rtn = rtn + cards.get(k);
+		for (int k = cards.length - 1; k >= size; k--) {
+			rtn = rtn + cards[k];
 			if (k != size) {
 				rtn = rtn + ", ";
 			}
-			if ((k - cards.size()) % 2 == 0) {
+			if ((k - cards.length) % 2 == 0) {
 				// Insert carriage returns so entire deck is visible on console.
 				rtn = rtn + "\n";
 			}
