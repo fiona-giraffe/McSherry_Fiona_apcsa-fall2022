@@ -97,6 +97,7 @@ public class DeckTester {
 		int[] pointValues3 = {1, 2, 3};
 		Deck c = new Deck(ranks3, suits3, pointValues3);
 		
+		
 		System.out.println("**** Original Deck Methods ****");
 		System.out.println("   toString:\n" + c.toString());
 		System.out.println("   isEmpty: " + c.isEmpty());
