@@ -9,7 +9,17 @@ public class TriangleWord
 {
 	//instance variables and constructors could be present, but are not necessary
 		
-	public static void printTriangle(String word)
+	public static String printTriangle(String word)
 	{
+		String output = "";
+		for(int i = 1; i <= word.length(); i++) {
+			int k = i;
+			while( k > 0) {
+				output += word.substring(0, i);
+				k--;
+			}
+			output += "\n";
+		}
+		return output; 
 	}
 }
