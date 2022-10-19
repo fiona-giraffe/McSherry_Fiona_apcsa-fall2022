@@ -15,18 +15,28 @@ public class WordRunner
 		Scanner file = new Scanner(new File("words.dat"));
 
 		int size = file.nextInt();
-		file.nextLine();
 		
-
-
-
-
-
-
-
-
-
-
-
+		String[] output = new String[size];
+		for(int i=0; i<size; i++) {
+			String s = file.nextLine();
+			output[i] = new String(s);
+		}
+		
+		for(int j=0; j < output.length; j++) {
+			for(int i=0; i<output.length; i++) {
+				Word test = new Word(output[i]);
+				Word test2 = new Word(output[j]);
+				if(test.compareTo(test2) >= 1) {
+					String z = output[i];
+					output[i] = output[j];
+					output[j] = z;
+				}	
+			}	
+		}		
+		
+		for(int i=0; i < output.length; i++) {
+			Word test3 = new Word(output[i]);
+			System.out.println(test3);
+		}	
 	}
 }
