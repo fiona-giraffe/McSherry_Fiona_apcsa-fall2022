@@ -13,26 +13,20 @@ public class Word implements Comparable<Word>
 		word = s;
 	}
 
+	public String getWord() {
+		return word;
+	}
 	public int compareTo( Word rhs )
 	{		
-		if(word.length() == rhs.word.length()){
-			if((int) word.charAt(0) < (int) rhs.word.charAt(0)) {
-				return 1;
-			}
-			else if((int) word.charAt(0) > (int) rhs.word.charAt(0)) {
-				return -1;
-			}
-			else if(word.equals(rhs.word)) {
-				return 0;
-			}
-		}
-		else if(word.length() > rhs.word.length()) {
-			return 1;
-		}
-		else if(word.length() < rhs.word.length()) {
+		if(word.length() < rhs.getWord().length()){
 			return -1;
 		}
-		return 0;
+		else if(word.length() > rhs.getWord().length()) {
+			return 1;
+		}
+		else {
+			return word.compareTo(rhs.getWord());
+		}
 	}
 
 	public String toString()

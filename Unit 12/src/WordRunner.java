@@ -12,16 +12,16 @@ public class WordRunner
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Scanner file = new Scanner(new File("words.dat"));
+		Scanner file = new Scanner(new File("/Users/seang/Documents/apcsa-2022/McSherry_Fiona_apcsa-fall2022/Unit 12/src/words.dat"));
 
 		int size = file.nextInt();
-		
+	
 		String[] output = new String[size];
 		for(int i=0; i<size; i++) {
 			String s = file.nextLine();
 			output[i] = new String(s);
 		}
-		
+	
 		for(int j=0; j < output.length; j++) {
 			for(int i=0; i<output.length; i++) {
 				Word test = new Word(output[i]);
