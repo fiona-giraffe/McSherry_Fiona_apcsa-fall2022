@@ -67,18 +67,14 @@ public class ToyStore
   	public void sortToysByCount()
   	{
   		for(int i = 0; i < toyList.size()-1; i++) {
-  			for(int j = 0; j < toyList.size()-1; j++) {
-  				if(toyList.get(j).getCount() > toyList.get(j+1).getCount()) {
-  					Toy toy = toyList.get(j);
-  					toyList.set(j,  toyList.get(j+1));
-  					toyList.set(j+1,  toy);
-  				}
+  			if(toyList.get(i).getCount()<toyList.get(i+1).getCount()) {
+  				toyList.set(i+1, toyList.set(i,  toyList.get(i+1)));
   			}
   		}
   	}  
   	  
 	public String toString()
 	{
-	   return toyList.toString() + "\n" + " max == " + getMostFrequentToy();
+	   return toyList.toString() + "\n" + "max == " + getMostFrequentToy();
 	}
 }
