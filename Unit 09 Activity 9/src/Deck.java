@@ -39,6 +39,7 @@ public class Deck {
 			 }
 		 }
 		 size = cards.size();
+		 shuffle();
 	}
 
 
@@ -72,6 +73,7 @@ public class Deck {
 			cards.set(rand,  cards.get(i));
 			cards.set(i,  temp);
 		}
+		size = cards.size();
 	}
 
 	/**

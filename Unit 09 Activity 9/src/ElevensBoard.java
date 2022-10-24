@@ -60,7 +60,7 @@ public class ElevensBoard extends Board {
 		else if(selectedCards.size() == 3) {
 			return containsJQK(selectedCards);
 		}
-		return false;
+		else return false;
 	}
 
 	/**
