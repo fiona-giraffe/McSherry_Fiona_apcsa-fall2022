@@ -9,7 +9,14 @@ public class Grid
    //load vals into the rows x cols grid randomly
 	public Grid(int rows, int cols, String[] vals)
 	{
-		for()
+		grid = new String[rows][cols];
+		for(int i=0; i < grid.length; i++) {
+			for(int j=0; j < grid[i].length; j++) {
+				int v = (int)(Math.random()*vals.length);
+				String val = vals[v];
+				grid[i][j] = val;
+			}
+		}
 	}
 
 	//find out which of the vals occurs the most
@@ -38,13 +45,25 @@ public class Grid
 	//returns a count of how many times val occurs in the matrix
 	private int countVals( String val )
 	{
-		return 0;
+		int count = 0;
+		for(int i=0; i < grid.length; i++) {
+			for(int j=0; j < grid[i].length; j++) {
+				if (grid[i][j] == val) count++;
+			}
+		}	
+		return count;
 	}
 
 	//display the grid
 	public String toString()
 	{
 		String output="";
+		for(String[] row : grid) {
+			for(String w : row) {
+				output += w + " ";
+			}
+			output += "\n";
+		}
 		return output;
 	}
 }

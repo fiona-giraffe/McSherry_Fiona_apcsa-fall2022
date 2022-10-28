@@ -25,7 +25,7 @@ public class MazeRunner
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Scanner file = new Scanner(new File("C:\\Users\\tony.mauro\\Desktop\\APCSA-Fall-2022\\Workspace-APCSA-2022\\Unit14\\src\\maze.dat"));
+		Scanner file = new Scanner(new File("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 14\\src\\maze.dat"));
 		while(file.hasNext())
 		{
 			int size = file.nextInt();
