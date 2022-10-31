@@ -53,6 +53,14 @@ public class Grid
 		}	
 		return count;
 	}
+	
+	public String Debugging(String[] vals) {
+		String output = "";
+		for(int k = 0; k < vals.length; k++) {
+			output +=(vals[k] + " count is " + countVals(vals[k]) + "\n");
+		}
+		return output;
+	}
 
 	//display the grid
 	public String toString()

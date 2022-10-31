@@ -11,8 +11,11 @@ public class GridRunner
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Grid x = new Grid(7, 7, new String[]{"A", "B", "D", "0", "G", "3"});
+		String[] vals = {"a", "b", "c", "7", "9", "x", "2"};
+		Grid x = new Grid(20, 20, vals);
 		System.out.println(x);
-		System.out.println(x.findMax(new String[]{"X", "A", "B"}));
+		System.out.println("--debugging code to help see if the algorithm is working-- \n");
+		System.out.println(x.Debugging(vals));
+		System.out.println(x.findMax(vals) + " occurs the most.");
 	}
 }
