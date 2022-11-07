@@ -15,7 +15,7 @@ class BallTestOne
 		Ball two = new Ball(100,90);
 		out.println(two);
 		
-		Ball three = new Ball(100,100,30,50);
+		Ball three = new Ball(100,90,30,50);
 		out.println(three);
 		
 		Ball four = new Ball(100,100,30,50,Color.BLUE);

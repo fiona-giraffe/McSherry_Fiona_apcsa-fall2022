@@ -16,8 +16,10 @@ public class Block implements Locatable
 
 	public Block()
 	{
-		
-
+		setPos(100, 150);
+		setWidth(10);
+		setHeight(10);
+		setColor(Color.BLACK);
 	}
 
 	//add other Block constructors - x , y , width, height, color

@@ -30,6 +30,13 @@ public class Ball extends Block
 		setHeight(height);
 	}
 	
+	public Ball(int x, int y, int width, int height, Color color) {
+		this(x, y);
+		setWidth(width);
+		setHeight(height);
+		setColor(color);
+	}
+	
 	public Ball(int x, int y, int width, int height, Color color, int xS, int yS) {
 		this(x, y);
 		setWidth(width);

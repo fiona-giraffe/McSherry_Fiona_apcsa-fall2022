@@ -22,6 +22,7 @@ public class Tester extends JFrame
 
 		//PaddleTestTwo padTest = new PaddleTestTwo();
 		Pong padTest = new Pong();
+		
 		((Component)padTest).setFocusable(true);
 		getContentPane().add(padTest);
 
