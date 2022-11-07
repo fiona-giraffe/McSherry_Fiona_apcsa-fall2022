@@ -27,9 +27,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	public Pong()
 	{
 		//set up all variables related to the game
-//		ball = new Ball(400, 300, 20, 20, Color.BLUE, 2, 2);
+		ball = new Ball(400, 300, 20, 20, Color.BLUE, 2, 2);
 //		ball = new BlinkyBall(400, 300, 20, 20, Color.BLUE, 2, 2);
-		ball = new SpeedUpBall(400, 300, 20, 20, Color.BLUE, 2, 2);
+//		ball = new SpeedUpBall(400, 300, 20, 20, Color.BLUE, 2, 2);
 		
 		leftPaddle = new Paddle(20, 200, 20, 80, Color.ORANGE, 5);
 		rightPaddle = new Paddle(750, 200, 20, 80, Color.ORANGE, 5);
@@ -177,10 +177,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	{
 		switch(toUpperCase(e.getKeyChar()))
 		{
-			case 'W' : keys[0]=true; break;
-			case 'Z' : keys[1]=true; break;
-			case 'I' : keys[2]=true; break;
-			case 'M' : keys[3]=true; break;
+			case 'Z' : keys[0]=true; break;
+			case 'W' : keys[1]=true; break;
+			case 'M' : keys[2]=true; break;
+			case 'I' : keys[3]=true; break;
 		}
 	}
 
@@ -188,10 +188,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	{
 		switch(toUpperCase(e.getKeyChar()))
 		{
-			case 'W' : keys[0]=false; break;
-			case 'Z' : keys[1]=false; break;
-			case 'I' : keys[2]=false; break;
-			case 'M' : keys[3]=false; break;
+			case 'Z' : keys[0]=false; break;
+			case 'W' : keys[1]=false; break;
+			case 'M' : keys[2]=false; break;
+			case 'I' : keys[3]=false; break;
 		}
 	}
 

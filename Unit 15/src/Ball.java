@@ -21,7 +21,9 @@ public class Ball extends Block
 	
 	public Ball(int x, int y) {
 		setX(x);
-		setYSpeed(y);
+		setY(y);
+		xSpeed = 3;
+		ySpeed = 1;
 	}
 	
 	public Ball(int x, int y, int width, int height) {
