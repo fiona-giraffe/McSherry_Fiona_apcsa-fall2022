@@ -78,6 +78,19 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				leftScore++;
 			}
 			yCollide = true;
+			
+			ball.draw(graphToBack, Color.WHITE);
+			ball.setX((int)(Math.random()*50+400));
+			ball.setY((int)(Math.random()*50+300));
+			int i = (int)(Math.random()*2);
+			if(i==0) {
+				ball.setXSpeed(2);
+				ball.setYSpeed(1);
+			}
+			else {
+				ball.setXSpeed(-2);
+				ball.setYSpeed(1);
+			}
 		}
 		
 		if(!(ball.getX()>=10))
@@ -88,6 +101,19 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				rightScore++;
 			}
 			yCollide = true;
+			
+			ball.draw(graphToBack, Color.WHITE);
+			ball.setX((int)(Math.random()*50+400));
+			ball.setY((int)(Math.random()*50+300));
+			int i = (int)(Math.random()*2);
+			if(i==0) {
+				ball.setXSpeed(2);
+				ball.setYSpeed(1);
+			}
+			else {
+				ball.setXSpeed(-2);
+				ball.setYSpeed(1);
+			}
 		}
 		
 		if(ball.getY() <= 0 || ball.getY()+ball.getHeight() >= 600) {
@@ -146,22 +172,22 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			ball.onCollide();
 		}
 		//see if the paddles need to be moved
-		if(keys[0] == true && leftPaddle.getY() >= leftPaddle.getSpeed())
+		if(keys[0] == true)
 		{
 			//left paddle up
 			leftPaddle.moveUpAndDraw(graphToBack);
 		}
-		if(keys[1] == true && leftPaddle.getY() + leftPaddle.getHeight() <= 565 - leftPaddle.getSpeed())
+		if(keys[1] == true)
 		{
 			//left paddle down
 			leftPaddle.moveDownAndDraw(graphToBack);
 
 		}
-		if(keys[2] == true && rightPaddle.getY() >= rightPaddle.getSpeed())
+		if(keys[2] == true)
 		{
 			rightPaddle.moveUpAndDraw(graphToBack);
 		}
-		if(keys[3] == true && rightPaddle.getY() + rightPaddle.getHeight() <= 565 - rightPaddle.getSpeed())
+		if(keys[3] == true)
 		{
 			rightPaddle.moveDownAndDraw(graphToBack);
 		}
