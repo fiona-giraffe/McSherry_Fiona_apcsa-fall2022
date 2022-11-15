@@ -98,6 +98,61 @@ public class Picture extends SimplePicture
     }
   }
   
+  /** Method to set all colors except blue to 0 */
+  public void keepOnlyBlue() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] rowArray : pixels) {
+		  for(Pixel pixelObj : rowArray) {
+			  pixelObj.setRed(0);
+			  pixelObj.setGreen(0);
+		  }
+	  }
+  }
+  
+  /** Method to negate all pixels: 255 minus original number */
+  public void negate() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] rowArray : pixels) {
+		  for(Pixel pixelObj : rowArray) {
+			  pixelObj.setRed(255 - pixelObj.getRed());
+			  pixelObj.setGreen(255 - pixelObj.getGreen());
+			  pixelObj.setBlue(255 - pixelObj.getBlue());
+		  }
+	  }
+  }
+  
+  /** Method to set to grayscale: add rgb and divide by 3, set all 3 to this value */
+  public void grayscale() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for(Pixel[] rowArray : pixels) {
+		  for(Pixel pixelObj : rowArray) {
+			  int gray = (pixelObj.getRed() + pixelObj.getGreen() + pixelObj.getBlue())/3;
+			  pixelObj.setRed(gray);
+			  pixelObj.setGreen(gray);
+			  pixelObj.setBlue(gray);
+		  }
+	  }
+  }
+  
+  /** method to make fix more visible */
+  public void fixUnderwater() {
+	  Pixel[][] pixels = this.getPixels2D();
+	    for (Pixel[] rowArray : pixels) {
+	    	for (Pixel pixelObj : rowArray){
+	    		int r = Math.abs(pixelObj.getRed() - 20);
+	    		int g = Math.abs(pixelObj.getGreen() - 160);
+	    		int b = Math.abs(pixelObj.getBlue() - 170);
+	        
+	    		int diff = r + g + b;
+	    		if (diff > 20) {
+	    			pixelObj.setRed(255);
+	    			pixelObj.setGreen(255);
+	    			pixelObj.setBlue(255);
+	    		}
+	    	}
+	    }
+  }
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -176,8 +231,8 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
+    Picture flower1 = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\flower1.jpg");
+    Picture flower2 = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\flower2.jpg");
     this.copy(flower1,0,0);
     this.copy(flower2,100,0);
     this.copy(flower1,200,0);
@@ -187,7 +242,7 @@ public class Picture extends SimplePicture
     this.copy(flower1,400,0);
     this.copy(flower2,500,0);
     this.mirrorVertical();
-    this.write("collage.jpg");
+    this.write("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\collage.jpg");
   }
   
   
@@ -223,7 +278,7 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
