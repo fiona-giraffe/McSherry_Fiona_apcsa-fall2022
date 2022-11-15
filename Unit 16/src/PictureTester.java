@@ -58,6 +58,34 @@ public class PictureTester
     caterpillar.explore();
   }
   
+  public static void testMirrorVerticalRightToLeft() {
+	  Picture caterpillar = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\caterpillar.jpg");
+	  caterpillar.explore();
+	  caterpillar.mirrorVerticalRightToLeft();
+	  caterpillar.explore();
+  }
+  
+  public static void testMirrorHorizontal() {
+	  Picture motor = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\redMotorcycle.jpg");
+	  motor.explore();
+	  motor.mirrorHorizontal();
+	  motor.explore();
+  }
+  
+  public static void testMirrorHorizontalBotToTop() {
+	  Picture motor = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\redMotorcycle.jpg");
+	  motor.explore();
+	  motor.mirrorHorizontalBotToTop();
+	  motor.explore();
+  }
+  
+  public static void testMirrorDiagonal() {
+	  Picture beach = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\beach.jpg");
+	  beach.explore();
+	  beach.mirrorDiagonal();
+	  beach.explore();
+  }
+  
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -90,21 +118,24 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    //testZeroBlue();             //works
-    //testKeepOnlyBlue();         //works
+    //testZeroBlue();                   //works
+    //testKeepOnlyBlue();               //works
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();                //works  
-    //testGrayscale();             //works
-    testFixUnderwater();
-    //testMirrorVertical();        //works
-    //testMirrorTemple();          //works
+    //testNegate();                      //works  
+    //testGrayscale();                   //works
+    //testFixUnderwater();               //works
+    //testMirrorVertical();              //works
+	//testMirrorVerticalRightToLeft();   //works
+	//testMirrorHorizontal();            //works
+	//testMirrorHorizontalBotToTop();    //works
+    //testMirrorTemple();                //works
     //testMirrorArms();
     //testMirrorGull();
-    //testMirrorDiagonal();
-    //testCollage();               //works
+    testMirrorDiagonal();
+    //testCollage();                     //works
     //testCopy();
-    //testEdgeDetection();         //works
+    //testEdgeDetection();               //works
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
