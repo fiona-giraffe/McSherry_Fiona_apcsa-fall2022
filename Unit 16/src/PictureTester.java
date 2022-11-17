@@ -95,11 +95,33 @@ public class PictureTester
     temple.explore();
   }
   
+  public static void testMirrorArms()
+  {
+    Picture snow = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\snowman.jpg");
+    snow.explore();
+    snow.mirrorArms();
+    snow.explore();
+  }
+  
+  public static void testMirrorGull() {
+	Picture gull = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\seagull.jpg");
+	gull.explore();
+	gull.mirrorGull();
+	gull.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
     Picture canvas = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\640x480.jpg");
     canvas.createCollage();
+    canvas.explore();
+  }
+  
+  public static void testMyCollage()
+  {
+    Picture canvas = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\640x480.jpg");
+    canvas.myCollage();
     canvas.explore();
   }
   
@@ -111,6 +133,19 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testEdgeDetection2()
+  {
+    Picture swan = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\swan.jpg");
+    swan.edgeDetection2(10);
+    swan.explore();
+  }
+  
+  public static void testCopy() {
+	Picture pic = new Picture("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\640x480.jpg");
+	pic.createCollage();
+	pic.explore();
+  }
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
@@ -118,8 +153,8 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    //testZeroBlue();                   //works
-    //testKeepOnlyBlue();               //works
+    //testZeroBlue();                    //works
+    //testKeepOnlyBlue();                //works
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();                      //works  
@@ -130,13 +165,14 @@ public class PictureTester
 	//testMirrorHorizontal();            //works
 	//testMirrorHorizontalBotToTop();    //works
     //testMirrorTemple();                //works
-    //testMirrorArms();
-    //testMirrorGull();
-    testMirrorDiagonal();
+    //testMirrorArms();                  //works
+    //testMirrorGull();                  //works
+    //testMirrorDiagonal();              //works
     //testCollage();                     //works
-    //testCopy();
+	//testMyCollage();                   //works
+    //testCopy();                        //copy1 works, copy2 works
     //testEdgeDetection();               //works
-    //testEdgeDetection2();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
