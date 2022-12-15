@@ -463,10 +463,137 @@ public class Picture extends SimplePicture
 		  if (topPixel.colorDistance(botColor) > edgeDist) {
 			  pixels[row][col].setColor(Color.BLACK);
 		  }
-	  }
+	   }
   	}
  }
 
+  /** Hide a black and white message in the current
+  * picture
+  * @param messagePict the picture with a message
+  */
+  public void encode(Picture messagePict) {
+	  Pixel[][] messagePixels = messagePict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  int count = 0;
+	  
+	  for (int row = 0; row < this.getHeight(); row++) {
+		  for (int col = 0; col < this.getWidth(); col++) {
+
+			  currPixel = currPixels[row][col];
+			  
+			  //if pixel has multiple of 5 in rgb add 1
+			  
+			  if(currPixel.getRed() == 255)
+				  currPixel.setRed(254);
+			  else if(currPixel.getRed() % 5 == 0)
+				  currPixel.setRed(currPixel.getRed() + 1);
+			  
+			  if(currPixel.getGreen() == 255)
+				  currPixel.setGreen(254);
+			  else if (currPixel.getGreen() % 5 == 0)
+				  currPixel.setGreen(currPixel.getGreen() + 1);
+			  
+			  if(currPixel.getBlue() == 255)
+				  currPixel.setBlue(254);
+			  else if (currPixel.getBlue() % 5 == 0)
+				  currPixel.setBlue(currPixel.getBlue() + 1);
+			  
+			  messagePixel = messagePixels[row][col];
+			 
+			  //move pixels into diagonal
+			  
+			  if(messagePixel.colorDistance(Color.BLACK) < 50) {
+//				  if(row+col < this.getHeight()) {
+//					  currPixels[row+col][col] = currPixel;
+//				  }
+//				  else {
+//					  currPixels[row+col - this.getHeight()][col] = currPixel;
+//				  }
+				  count++;
+			  }
+			  
+			  //change message pixel in cover image to closest multiple of 5
+			  
+			  //code to alternate between changing rgb
+			  int[] choose = {1, 2, 3};
+			  int a = choose[0];
+			  if(row % 3 == 0) {
+				  a = choose[0];
+			  }
+			  else if(row % 3 == 1) {
+				  a = choose[1];
+			  }
+			  else if(row % 3 == 2) {
+				  a = choose[2];
+			  }
+			  
+			  if(a == 1) {
+				  if (messagePixel.colorDistance(Color.BLACK) < 50) {
+					  if(currPixel.getRed() % 5 > 2)
+						  currPixel.setRed(currPixel.getRed() + (5 - currPixel.getRed()%5));
+					  else
+						  currPixel.setRed(currPixel.getRed() - currPixel.getRed()%5);
+				  } 
+			  }
+			  else if(a == 2) {
+				  if (messagePixel.colorDistance(Color.BLACK) < 50) {
+					  if(currPixel.getGreen() % 5 > 2)
+						  currPixel.setGreen(currPixel.getGreen() + (5 - currPixel.getGreen()%5));
+					  else
+						  currPixel.setGreen(currPixel.getGreen() - currPixel.getGreen()%5);
+				  }
+			  }
+			  else if(a == 3) {
+					 if (messagePixel.colorDistance(Color.BLACK) < 50) {
+						 if(currPixel.getBlue() % 5 > 2)
+							  currPixel.setBlue(currPixel.getBlue() + (5 - currPixel.getBlue()%5));
+						  else
+							  currPixel.setBlue(currPixel.getBlue() - currPixel.getBlue()%5);
+					  }
+			  }
+			  
+//			  if (currPixel.getRed() % 5 == 0 || currPixel.getGreen() % 5 == 0 || currPixel.getBlue() % 5 == 0)
+//				  currPixel.setColor(Color.BLACK);  //for testing
+		  }
+	  }
+
+  System.out.println(count);
+  }
+  
+  /**
+  * Method to decode a message hidden in the
+  * red value of the current picture
+  * @return the picture with the hidden message
+  */
+  public Picture decode() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel currPixel = null;
+
+	  Pixel messagePixel = null;
+	  Picture messagePicture = new Picture(height,width);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++) {
+		  for (int col = 0; col < this.getWidth(); col++)
+		  {
+			  currPixel = pixels[row][col];
+			  messagePixel = messagePixels[row][col];
+			  if (currPixel.getRed() % 5 == 0 || currPixel.getGreen() % 5 == 0 || currPixel.getBlue() % 5 == 0)
+			  {
+//				  if(row-col >= 0)
+//					  messagePixel = messagePixels[row-col][col];
+				  messagePixel.setColor(Color.BLACK);
+				  count++;
+			  }
+		  }
+	  }
+	  System.out.println(count);
+	  return messagePicture;
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
