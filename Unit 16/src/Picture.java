@@ -71,7 +71,77 @@ public class Picture extends SimplePicture
   
   ////////////////////// methods ///////////////////////////////////////
   
-  /**
+  public void Extension(Picture overPict, int x, int y, int w, int h) {
+	  Pixel[][] messagePixels = overPict.getPixels2D();
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	 
+	  for (int row = y; row < h; row++)
+	    {
+	      for (int col = x; col < w; col++)
+	      {
+	    	  currPixel = currPixels[row][col];
+	    	  messagePixel = messagePixels[row][col];
+	    	  
+	    	  currPixel.setBlue((currPixel.getBlue() + messagePixel.getBlue())/2);
+	    	  currPixel.setRed((currPixel.getRed() + messagePixel.getRed())/2);	  
+	    	  currPixel.setGreen((currPixel.getGreen() + messagePixel.getGreen())/2);
+	      }
+	    }
+  }
+  
+  public void DropShadow(int x, int y, int w, int h) {
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null;
+	  
+	  for(int row = x; row < h; row++) {
+		  for(int col = y; col < w; col++) {
+			  currPixel = currPixels[row][col];
+			  
+			  if(row + 5 < this.getHeight() && col + 5 < this.getWidth() && currPixel.colorDistance(Color.BLACK) < 50) {
+				  if((currPixels[row + 5][col + 5]).colorDistance(Color.BLACK) > 50) {
+					  currPixel = currPixels[row + 5][col + 5];
+					  currPixel.setRed(151);
+					  currPixel.setBlue(151);
+					  currPixel.setGreen(151);
+				  } 
+			  }
+		  }
+	  }
+  }
+  
+  public void Warp() {
+	  Pixel[][] currPixels = this.getPixels2D();
+	  Pixel currPixel = null; 
+	  int w = this.getWidth();
+	  int h = this.getHeight();
+	  
+	  for(int i = 0; i < h; i++) {
+		  for(int j = 0; j < w; j++) {
+			  currPixel = currPixels[i][j];
+			  
+			  int r = currPixel.getRed();
+			  int g = currPixel.getGreen();
+			  int b = currPixel.getBlue();
+			  
+			  int x = (int) Math.abs((i * Math.cos(j * (Math.PI/100))));
+			  int y = j;
+			  
+			  currPixel = currPixels[x][y];
+			  currPixel.setRed(r);
+			  currPixel.setGreen(g);
+			  currPixel.setBlue(b);
+		  }
+	  }
+  }
+  
+  private int sin(double d) {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+/**
    * Method to return a string with information about this picture.
    * @return a string with information about the picture such as fileName,
    * height and width.

@@ -8,6 +8,7 @@
  */
 public class PictureTester
 {
+	
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
@@ -31,6 +32,32 @@ public class PictureTester
 	  beach.explore();
 	  beach.negate();
 	  beach.explore();
+  }
+  
+  public static void testExtension() {
+	  Picture four = new Picture ("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\four.jpg");
+	  Picture nine = new Picture ("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\nine3.jpg");
+	  four.explore();
+	  
+	  four.Extension(nine, 0, 0, four.getWidth(), four.getHeight());
+	  four.explore();
+	  nine.explore();
+//	  four.Warp();
+//	  four.explore();
+  }
+  
+  public static void testDropShadow() {
+	  Picture msg = new Picture ("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\four.jpg");
+	  
+	  msg.DropShadow(0, 0, msg.getWidth(), msg.getHeight());
+	  msg.explore();
+  }
+  
+  public static void testWarp() {
+	  Picture msg = new Picture ("C:\\Users\\seang\\Documents\\apcsa-2022\\McSherry_Fiona_apcsa-fall2022\\Unit 16\\src\\images\\four.jpg");
+	  
+	  msg.Warp();
+	  msg.explore();
   }
   
   /** test grayscale() */
@@ -184,7 +211,10 @@ public class PictureTester
     //testEdgeDetection();               //works
     //testEdgeDetection2();              //works
     //testChromakey();
-    testEncodeAndDecode();
+    //testEncodeAndDecode();
+	  testExtension();
+//	  testDropShadow();
+//	  testWarp();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
